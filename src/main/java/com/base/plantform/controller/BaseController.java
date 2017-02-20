@@ -1,12 +1,16 @@
 package com.base.plantform.controller;
 
+import com.base.plantform.entity.VersionControl;
+import com.base.plantform.service.BaseService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 类名: BaseController </br>
@@ -16,52 +20,20 @@ import javax.servlet.http.HttpServletResponse;
  * 发布版本：V1.0  </br>
  */
 @Controller
-@RequestMapping(value = "/base/")
+@RequestMapping(value = "/sys/")
 public class BaseController {
 
     private Logger logger = Logger.getLogger(BaseController.class);
 
-    @RequestMapping(value = "index")
-    public String toIndex(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/index";
-    }
+    @Resource
+    private BaseService baseService;
 
-    @RequestMapping(value = "dashboard_1")
-    public String dashboard_1(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/dashboard_1";
-    }
-
-    @RequestMapping(value = "dashboard_2")
-    public String toDashboard_2(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/dashboard_2";
-    }
-    @RequestMapping(value = "dashboard_3")
-    public String toDashboard_3(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/dashboard_3";
-    }
-    @RequestMapping(value = "dashboard_4")
-    public String toDashboard_4(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/dashboard_4";
-    }
-    @RequestMapping(value = "dashboard_5")
-    public String toDashboard_5(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/dashboard_5";
-    }
-    @RequestMapping(value = "layouts")
-    public String toLayouts(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "jsp/layouts";
-    }
-
-    @RequestMapping(value = "sysIndex")
-    public String toSysIndex(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "plantform/index";
-    }
-    @RequestMapping(value = "menu/menu")
-    public String toMenu(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "plantform/menu/menu";
-    }
-    @RequestMapping(value = "menu/menuAdd")
-    public String toMenuAdd(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "plantform/menu/menuAdd";
+    @RequestMapping(value = "index_v1")
+    public String toIndex_V1(HttpServletRequest request, HttpServletResponse response, Model model) {
+        logger.info("开始获取全部版本信息...");
+        List<VersionControl> versionList = baseService.getVersionControlList();
+        model.addAttribute("versionList",versionList);
+        logger.info("版本信息获取成功！");
+        return "plantform/index_v1";
     }
 }
