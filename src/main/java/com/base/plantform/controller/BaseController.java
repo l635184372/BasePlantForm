@@ -28,6 +28,21 @@ public class BaseController {
     @Resource
     private BaseService baseService;
 
+    @RequestMapping(value = "login")
+    public String toLogin(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/login";
+    }
+
+    @RequestMapping(value = "register")
+    public String toRegister(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/register";
+    }
+
+    @RequestMapping(value = "index")
+    public String toIndex(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/index";
+    }
+
     @RequestMapping(value = "index_v1")
     public String toIndex_V1(HttpServletRequest request, HttpServletResponse response, Model model) {
         logger.info("开始获取全部版本信息...");
@@ -35,5 +50,20 @@ public class BaseController {
         model.addAttribute("versionList",versionList);
         logger.info("版本信息获取成功！");
         return "plantform/index_v1";
+    }
+
+    @RequestMapping(value = "index_v5")
+    public String toIndex_V5(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/index_v5";
+    }
+
+    @RequestMapping(value = "layouts")
+    public String toLayouts(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/layouts";
+    }
+
+    @RequestMapping(value = "contacts")
+    public String toContacts(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return "plantform/contacts";
     }
 }

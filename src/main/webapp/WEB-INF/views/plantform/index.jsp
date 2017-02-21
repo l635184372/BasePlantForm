@@ -55,7 +55,7 @@
                             <li><a class="J_menuItem" href="mailbox.html" tppabs="http://www.zi-han.net/theme/hplus/mailbox.html">信箱</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html" tppabs="http://www.zi-han.net/theme/hplus/login.html">安全退出</a>
+                            <li><a href="${ctxSys}/login" >安全退出</a>
                             </li>
                         </ul>
                     </div>
@@ -70,25 +70,25 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="index_v1.html" tppabs="http://www.zi-han.net/theme/hplus/index_v1.html" data-index="0">主页示例一</a>
+                            <a class="J_menuItem" href="${ctxSys}/index_v1" data-index="0">主页示例一</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="index_v2.html" tppabs="http://www.zi-han.net/theme/hplus/index_v2.html">主页示例二</a>
+                            <a class="J_menuItem" href="${ctxSys}/index_v2" >主页示例二</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="index_v3.html" tppabs="http://www.zi-han.net/theme/hplus/index_v3.html">主页示例三</a>
+                            <a class="J_menuItem" href="${ctxSys}/index_v3" >主页示例三</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="index_v4.html" tppabs="http://www.zi-han.net/theme/hplus/index_v4.html">主页示例四</a>
+                            <a class="J_menuItem" href="${ctxSys}/index_v4" >主页示例四</a>
                         </li>
                         <li>
-                            <a href="index_v5.html" tppabs="http://www.zi-han.net/theme/hplus/index_v5.html" target="_blank">主页示例五</a>
+                            <a href="${ctxSys}/index_v5" target="_blank">主页示例五</a>
                         </li>
                     </ul>
 
                 </li>
                 <li>
-                    <a class="J_menuItem" href="layouts.html" tppabs="http://www.zi-han.net/theme/hplus/layouts.html"><i class="fa fa-columns"></i> <span class="nav-label">布局</span></a>
+                    <a class="J_menuItem" href="${ctxSys}/layouts"><i class="fa fa-columns"></i> <span class="nav-label">布局</span></a>
                 </li>
                 <li>
                     <a href="#">
@@ -176,7 +176,7 @@
                 <li>
                     <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">页面</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a class="J_menuItem" href="contacts.html" tppabs="http://www.zi-han.net/theme/hplus/contacts.html">联系人</a>
+                        <li><a class="J_menuItem" href="${ctxSys}/contacts" tppabs="http://www.zi-han.net/theme/hplus/contacts.html">联系人</a>
                         </li>
                         <li><a class="J_menuItem" href="profile.html" tppabs="http://www.zi-han.net/theme/hplus/profile.html">个人资料</a>
                         </li>
@@ -498,7 +498,7 @@
             <a href="login.html" tppabs="http://www.zi-han.net/theme/hplus/login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctxSys}/index_v1" tppabs="http://www.zi-han.net/theme/hplus/index_v1.html?v=3.0" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${ctxSys}/index_v1" frameborder="0" data-id="index_v1.jsp" seamless></iframe>
         </div>
         <div class="footer">
             <div class="pull-right">&copy; 2014-2015 <a href="javascript:if(confirm('http://www.zi-han.net/  \n\n�ļ���δ�� Teleport Pro ȡ�أ���Ϊ �������·��������ʼ��ַ�����õķ�Χ��  \n\n��Ҫ�ӷ������ϴ�����'))window.location='http://www.zi-han.net/'" tppabs="http://www.zi-han.net/" target="_blank">zihan's blog</a>
@@ -1070,7 +1070,7 @@
 
 <!-- 自定义js -->
 <script src="${ctxStatic}/plantform/js/hplus.min.js" ></script>
-<script type="text/javascript" src="js/contabs.min.js"></script>
+<script type="text/javascript" src="${ctxStatic}/plantform/js/contabs.min.js"></script>
 
 <!-- 第三方插件 -->
 <script src="${ctxStatic}/plantform/js/plugins/pace/pace.min.js"></script>
