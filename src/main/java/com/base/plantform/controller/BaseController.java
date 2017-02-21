@@ -33,9 +33,15 @@ public class BaseController {
         return "plantform/login";
     }
 
-    @RequestMapping(value = "register")
+    @RequestMapping(value = "toRegister")
     public String toRegister(HttpServletRequest request, HttpServletResponse response, Model model) {
         return "plantform/register";
+    }
+
+    @RequestMapping(value = "register")
+    public String register(HttpServletRequest request, HttpServletResponse response, Model model) {
+
+        return "plantform/index";
     }
 
     @RequestMapping(value = "index")

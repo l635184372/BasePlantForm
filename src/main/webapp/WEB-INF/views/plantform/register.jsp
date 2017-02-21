@@ -36,7 +36,7 @@
         </div>
         <h3>欢迎注册 XX</h3>
         <p>创建一个XX新账户</p>
-        <form class="m-t" role="form" action="">
+        <form class="m-t" role="form" action="${ctxSys}/register">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="请输入用户名" required="">
             </div>
