@@ -36,28 +36,28 @@
         </div>
         <h3>欢迎注册 XX</h3>
         <p>创建一个XX新账户</p>
-        <form class="m-t" role="form" action="${ctxSys}/register">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="请输入用户名" required="">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="请输入密码" required="">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="请再次输入密码" required="">
-            </div>
-            <div class="form-group text-left">
-                <div class="checkbox i-checks">
-                    <label class="no-padding">
-                        <input type="checkbox"><i></i> 我同意注册协议</label>
+            <form class="form-horizontal m-t" id="signupForm" method="post">
+                <div class="form-group">
+                    <input id="username" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true" class="error" placeholder="请输入用户名">
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">注 册</button>
-
-            <p class="text-muted text-center"><small>已经有账户了？</small><a href="${ctxSys}/login"  >点此登录</a>
-            </p>
-
-        </form>
+                <div class="form-group">
+                    <input id="password" name="pas；sword" class="form-control" type="password" placeholder="请输入密码" >
+                </div>
+                <div class="form-group">
+                    <input id="confirm_password" name="confirm_password" class="form-control" type="password" placeholder="请再次输入密码">
+                    <%--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 请再次输入您的密码</span>--%>
+                </div>
+                <div class="form-group text-left">
+                    <div class="checkbox i-checks">
+                        <label class="no-padding">
+                            <input type="checkbox" class="checkbox" id="agree" name="agree"> 我已经认真阅读并同意《H+使用协议》
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <button class="btn btn-primary block full-width m-b" type="submit">提交</button>
+                </div>
+            </form>
     </div>
 </div>
 
@@ -66,6 +66,8 @@
 <script src="${ctxStatic}/plantform/js/bootstrap.min.js"  ></script>
 <!-- iCheck -->
 <script src="${ctxStatic}/plantform/js/plugins/iCheck/icheck.min.js"  ></script>
+<script src="${ctxStatic}/plantform/js/plugins/validate/jquery.validate.min.js"  ></script>
+<script src="${ctxStatic}/plantform/js/plugins/validate/messages_zh.min.js"  ></script>
 <script>
     $(document).ready(function () {
         $('.i-checks').iCheck({
@@ -73,6 +75,7 @@
             radioClass: 'iradio_square-green',
         });
     });
+    $.validator.setDefaults({highlight:function(a){$(a).closest(".form-group").removeClass("has-success").addClass("has-error")},success:function(a){a.closest(".form-group").removeClass("has-error").addClass("has-success")},errorElement:"span",errorPlacement:function(a,b){if(b.is(":radio")||b.is(":checkbox")){a.appendTo(b.parent().parent().parent())}else{a.appendTo(b.parent())}},errorClass:"help-block m-b-none",validClass:"help-block m-b-none"});$().ready(function(){$("#commentForm").validate();var a="<i class='fa fa-times-circle'></i> ";$("#signupForm").validate({rules:{firstname:"required",lastname:"required",username:{required:true,minlength:2},password:{required:true,minlength:5},confirm_password:{required:true,minlength:5,equalTo:"#password"},email:{required:true,email:true},topic:{required:"#newsletter:checked",minlength:2},agree:"required"},messages:{firstname:a+"请输入你的姓",lastname:a+"请输入您的名字",username:{required:a+"请输入您的用户名",minlength:a+"用户名必须两个字符以上"},password:{required:a+"请输入您的密码",minlength:a+"密码必须5个字符以上"},confirm_password:{required:a+"请再次输入密码",minlength:a+"密码必须5个字符以上",equalTo:a+"两次输入的密码不一致"},email:a+"请输入您的E-mail",agree:{required:a+"必须同意协议后才能注册",element:"#agree-error"}}});$("#username").focus(function(){var c=$("#firstname").val();var b=$("#lastname").val();if(c&&b&&!this.value){this.value=c+"."+b}})});
 </script>
 
 
