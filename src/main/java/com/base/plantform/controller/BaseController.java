@@ -1,11 +1,14 @@
 package com.base.plantform.controller;
 
+import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
 import com.base.plantform.service.BaseService;
+import com.base.plantform.util.JsonMapper;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -39,10 +42,28 @@ public class BaseController {
     }
 
     @RequestMapping(value = "register")
-    public String register(HttpServletRequest request, HttpServletResponse response, Model model) {
-
-        return "plantform/index";
+    public String register(SysUser sysUser,HttpServletRequest request, HttpServletResponse response, Model model) {
+        logger.info("开始进行用户新增操作....");
+        SysUser user = baseService.saveSysUser(sysUser);
+        if(user != null){
+            request.getSession().setAttribute("SYS_USER",user);
+            return "plantform/index";
+        }else {
+            return "plantform/register";
+        }
     }
+    @ResponseBody
+    @RequestMapping(value = {"checkUserName"})
+    public String posterDelete(HttpServletRequest request, HttpServletResponse response) {
+        String userName = request.getParameter("userName");
+        int flag = 0;
+        SysUser sysUser = baseService.findUserByUserName(userName);
+        if(sysUser != null){
+            flag = 1;
+        }
+        return JsonMapper.getInstance().toJson(flag);
+    }
+
 
     @RequestMapping(value = "index")
     public String toIndex(HttpServletRequest request, HttpServletResponse response, Model model) {

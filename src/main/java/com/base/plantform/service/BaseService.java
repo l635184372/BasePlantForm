@@ -1,5 +1,6 @@
 package com.base.plantform.service;
 
+import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
 
 import java.util.List;
@@ -11,4 +12,7 @@ public interface BaseService {
 
     List<VersionControl> getVersionControlList();
 
+    SysUser saveSysUser(SysUser sysUser);
+
+    SysUser findUserByUserName(String userName);
 }

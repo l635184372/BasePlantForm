@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.base.plantform.dao.UserDao">
+
+    <select id="findUserByUserName" resultType="com.base.plantform.entity.SysUser">
+        SELECT U.* FROM SysUser U WHERE U.USERNAME = #{userName}
+    </select>
+
+    <insert id="saveUser" parameterType="com.base.plantform.entity.SysUser">
+        INSERT INTO SysUser (
+          ID,
+          USERNAME,
+          PASSWORD
+        ) VALUES (
+          #{id},
+          #{userName},
+          #{passWord}
+        )
+    </insert>
+
+</mapper>
