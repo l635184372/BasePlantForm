@@ -1,5 +1,6 @@
 package com.base.plantform.service;
 
+import com.base.plantform.entity.PinBoard;
 import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
 
@@ -15,4 +16,6 @@ public interface BaseService {
     SysUser saveSysUser(SysUser sysUser);
 
     SysUser findUserByUserName(String userName);
+
+    List<PinBoard> findPinBoardList();
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.base.plantform.dao.PinBoardDao">
+    <!-- 查找标签墙列表 -->
+    <select id="findPinBoardList" resultType="com.base.plantform.entity.PinBoard">
+        SELECT P.* FROM Pin_Board P WHERE 1 = 1 AND P.DELFLAG = 0 ORDER BY P.CREATETIME ASC
+    </select>
+    <!-- 新增标签墙内容 -->
+    <insert id="savePinBoard" parameterType="com.base.plantform.entity.PinBoard">
+        INSERT INTO Pin_Board (
+          ID,
+          TITLE,
+          COMMENT,
+          CREATETIME
+        ) VALUES (
+          #{id},
+          #{title},
+          #{comment},
+          #{createTime}
+        )
+    </insert>
+    <!-- 逻辑删除标签墙内容，物理上未进行删除操作 -->
+    <delete id="deletePinBoard" parameterType="String">
+        UPDATE Pin_Board P SET P.DELFLAG = 1 WHERE P.ID = #{pinBoardId}
+    </delete>
+</mapper>

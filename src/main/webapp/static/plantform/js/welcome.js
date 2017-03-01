@@ -8,9 +8,16 @@ layer.config({
 layer.ready(function () {
 
     var html = $('#welcome-template').html();
+
+    var pin_board_html = $('#pin-board-add').html();
+
     $('a.viewlog').click(function () {
         logs();
         return false;
+    });
+
+    $('a.pin-board-add-view').click(function () {
+        pin_board_add_tips();
     });
 
     $('#pay-qrcode').click(function(){
@@ -31,10 +38,25 @@ layer.ready(function () {
             type: 1,
             area: ['700px', 'auto'],
             content: html,
-            btn: ['确定', '取消']
+            btn: ['确定', '取消'],
+        });
+    };
+
+
+    function pin_board_add_tips() {
+        parent.layer.open({
+            title: '标签页添加',
+            type: 1,
+            area: ['700px', 'auto'],
+            content: pin_board_html,
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                $("#pin-board-addForm").submit();
+                // parent.layer.alert('确定！',{icon: 2});
+            },
+            btn2: function (index, layero) {
+                parent.layer.alert('取消！', {icon: 2});
+            }
         });
     }
-
-    console.log('欢迎使用H+，如果您在使用的过程中有碰到问题，可以参考开发文档，感谢您的支持。');
-
 });

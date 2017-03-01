@@ -1,5 +1,6 @@
 package com.base.plantform.controller;
 
+import com.base.plantform.entity.PinBoard;
 import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
 import com.base.plantform.service.BaseService;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -92,5 +95,22 @@ public class BaseController {
     @RequestMapping(value = "contacts")
     public String toContacts(HttpServletRequest request, HttpServletResponse response, Model model) {
         return "plantform/contacts";
+    }
+
+    /**
+     * 跳转到标签墙页面
+     * @param request
+     * @param response
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "pin_board")
+    public String toPin_board(HttpServletRequest request, HttpServletResponse response, Model model){
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日(EEEE) HH时mm分");
+        logger.info("当前系统时间为："+df.format(date));
+        List<PinBoard> pinBoardList = baseService.findPinBoardList();
+        model.addAttribute("pinBoardList",pinBoardList);
+        return "plantform/pin_board";
     }
 }

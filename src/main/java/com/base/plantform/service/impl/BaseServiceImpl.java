@@ -1,7 +1,9 @@
 package com.base.plantform.service.impl;
 
 import com.base.plantform.dao.BaseDao;
+import com.base.plantform.dao.PinBoardDao;
 import com.base.plantform.dao.UserDao;
+import com.base.plantform.entity.PinBoard;
 import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
 import com.base.plantform.service.BaseService;
@@ -31,6 +33,9 @@ public class BaseServiceImpl implements BaseService{
 
     @Resource
     private UserDao userDao;
+
+    @Resource
+    private PinBoardDao pinBoardDao;
 
     public List<VersionControl> getVersionControlList() {
         List<VersionControl> versionControlList = baseDao.getVersionControlList();
@@ -70,5 +75,9 @@ public class BaseServiceImpl implements BaseService{
 
     public SysUser findUserByUserName(String userName) {
         return userDao.findUserByUserName(userName);
+    }
+
+    public List<PinBoard> findPinBoardList() {
+        return pinBoardDao.findPinBoardList();
     }
 }
