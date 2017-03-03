@@ -106,11 +106,13 @@ public class BaseController {
      */
     @RequestMapping(value = "pin_board")
     public String toPin_board(HttpServletRequest request, HttpServletResponse response, Model model){
-        Date date = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日(EEEE) HH时mm分");
-        logger.info("当前系统时间为："+df.format(date));
         List<PinBoard> pinBoardList = baseService.findPinBoardList();
         model.addAttribute("pinBoardList",pinBoardList);
         return "plantform/pin_board";
+    }
+    @RequestMapping(value = "pin_board_save")
+    public String toPin_board_save(PinBoard pinBoard,HttpServletRequest request, HttpServletResponse response, Model model){
+        baseService.savePinBoard(pinBoard);
+        return "redirect:index";
     }
 }

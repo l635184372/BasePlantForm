@@ -18,4 +18,6 @@ public interface BaseService {
     SysUser findUserByUserName(String userName);
 
     List<PinBoard> findPinBoardList();
+
+    int savePinBoard(PinBoard pinBoard);
 }

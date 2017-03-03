@@ -11,7 +11,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -79,5 +81,14 @@ public class BaseServiceImpl implements BaseService{
 
     public List<PinBoard> findPinBoardList() {
         return pinBoardDao.findPinBoardList();
+    }
+
+    public int savePinBoard(PinBoard pinBoard) {
+        pinBoard.setId(UUID.randomUUID().toString());
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy年MM月dd日(EEEE) HH时mm分");
+        logger.info("当前系统时间为："+df.format(date));
+        pinBoard.setCreateTime(df.format(date));
+        return pinBoardDao.savePinBoard(pinBoard);
     }
 }
