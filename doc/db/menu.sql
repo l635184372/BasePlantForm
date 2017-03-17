@@ -1,0 +1,17 @@
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('0', '根节点', 0, NULL, '-1', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('1', '主页', 1, NULL, '0', 0, 0, 0, 'fa fa-home');
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('10', 'Flot', 2, 'graph_flot', '8', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('11', 'Morris.js', 2, 'graph_morris', '8', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('12', 'Rickshaw', 2, 'graph_rickshaw', '8', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('13', 'Peity', 2, 'graph_peity', '8', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('14', 'Sparkline', 2, 'graph_sparkline', '8', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('15', '菜单管理', 1, NULL, '0', 0, 0, 0, 'fa fa-columns');
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('16', '菜单列表', 2, NULL, '15', 0, 0, 0, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('2', '主页示例一', 2, 'index_v1', '1', 0, 0, 1, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('3', '主页示例二', 2, 'index_v2', '1', 0, 0, 2, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('4', '主页示例三', 2, 'index_v3', '1', 0, 0, 3, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('5', '主页示例四', 2, 'index_v4', '1', 0, 0, 4, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('6', '主页示例五', 2, 'index_v5', '1', 0, 0, 5, NULL);
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('7', '布局', 1, 'layouts', '0', 0, 0, 1, 'fa fa-columns');
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('8', '统计图表', 1, NULL, '0', 0, 0, 2, 'fa fa fa-bar-chart-o');
+INSERT INTO `menu` (`id`, `name`, `level`, `target`, `parentId`, `enableFlag`, `delFlag`, `orderBy`, `imgClass`) VALUES ('9', '百度ECharts', 2, 'graph_echarts', '8', 0, 0, 0, NULL);

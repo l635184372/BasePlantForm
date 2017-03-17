@@ -1,0 +1,10 @@
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('0bef5ddb-61bc-416f-81f9-e881bdc23ac2', 'asd ', 'asd ', '2017年03月06日(星期一) 08时42分', 1);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('1', 'HTML5 文档类型', 'Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置。', '2014年10月24日(星期五) 15:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('2', '移动设备优先', '在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增……', '2014年10月24日(星期五) 16:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('3', '排版与链接', 'Bootstrap 排版、链接样式设置了基本的全局样式。分别是： 为 body 元素设置 background-color: #fff; 使用 @font-family-base、@font-size-base 和……。', '2014年10月25日(星期六)  15:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('4', 'Normalize.css', '为了增强跨浏览器表现的一致性，我们使用了 Normalize.css，这是由 Nicolas Gallagher 和 Jonathan Neal 维护的一个CSS 重置样式库。', '2014年10月24日(星期五) 15:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('5', '布局容器', 'Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类。注意，由于 padding 等属性的原因，这两种 容器类不能互相嵌套。', '2014年10月24日(星期五) 15:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('6', '栅格系统', 'Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的预定义类，还有强大的mixin 用于生成更具语义的布局。', '2014年10月24日(星期五) 16:31', 0);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('702cd5b3-a89e-4fff-afc5-78a4ec73b546', '测试数据', '测试啊测试，没完没了！', '2017年03月03日(星期五) 15时36分', 1);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('d83bc3f3-aef5-4bc0-b223-c6b5713ce979', '1qeqeq', 'qweqe', '2017年03月17日(星期五) 07时59分', 1);
+INSERT INTO `pin_board` (`id`, `title`, `comment`, `createtime`, `delflag`) VALUES ('de7643d2-2c2b-4520-9ab5-c54769cb98db', '侧是不是', '哈哈哈哈', '2017年03月06日(星期一) 08时27分', 1);

@@ -1,0 +1,2 @@
+INSERT INTO `version_control` (`id`, `title`, `content`, `createdate`) VALUES ('1', 'v3.2', '修复360浏览器个别情况下崩溃的问题;优化360浏览器的显示效果;修复layim弹出聊天窗口出错的问题;优化登录、注册、锁屏页面，使其在右侧主体区域打开时转到新页面打开;优化了移动设备的展示效果', '2015.09.23');
+INSERT INTO `version_control` (`id`, `title`, `content`, `createdate`) VALUES ('2', 'v3.1', '修复登录页面文本框输入字符不可见的问题;修复火狐下conTabs关闭操作按钮不下拉的问题;修复IOS系统下各种浏览器右侧内容不滚动的问题;优化了主页示例三的显示;修复了jqgrid编辑弹框导致页面错位的问题;使百度Echarts图标支持响应式，并优化了其显示;修复Summernote文本编辑器下拉菜单显示不全的问题;修复Toastr通知图标显示多个的问题', '2015.09.3');
