@@ -1,5 +1,6 @@
 package com.base.plantform.controller;
 
+import com.base.plantform.entity.Menu;
 import com.base.plantform.entity.PinBoard;
 import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
@@ -70,6 +71,9 @@ public class BaseController {
 
     @RequestMapping(value = "index")
     public String toIndex(HttpServletRequest request, HttpServletResponse response, Model model) {
+        List<Menu> menuList = baseService.findMenuList();
+        menuList = menuList.get(0).getChildrenList();
+        model.addAttribute("menuList",menuList);
         return "plantform/index";
     }
 
@@ -98,7 +102,7 @@ public class BaseController {
     }
 
     /**
-     * 跳转到标签墙页面
+     * 标签墙模块-->跳转到标签墙页面
      * @param request
      * @param response
      * @param model
@@ -110,9 +114,34 @@ public class BaseController {
         model.addAttribute("pinBoardList",pinBoardList);
         return "plantform/pin_board";
     }
+    /**
+     * 标签墙模块-->进行标签保存操作
+     * @param pinBoard
+     * @param request
+     * @param response
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "pin_board_save")
     public String toPin_board_save(PinBoard pinBoard,HttpServletRequest request, HttpServletResponse response, Model model){
         baseService.savePinBoard(pinBoard);
         return "redirect:index";
     }
+
+    /**
+     * 标签墙模块-->进行标签删除操作
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = {"pin_board_delete"})
+    public String pin_board_delete(HttpServletRequest request, HttpServletResponse response) {
+        String pinBoardId = request.getParameter("pinBoardId");
+        boolean flag = true;
+        baseService.deletePinboardByID(pinBoardId);
+        logger.info("pinBoardId:"+pinBoardId);
+        return JsonMapper.getInstance().toJson(flag);
+    }
+
 }

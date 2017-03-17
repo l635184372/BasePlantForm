@@ -3,6 +3,7 @@ package com.base.plantform.service.impl;
 import com.base.plantform.dao.BaseDao;
 import com.base.plantform.dao.PinBoardDao;
 import com.base.plantform.dao.UserDao;
+import com.base.plantform.entity.Menu;
 import com.base.plantform.entity.PinBoard;
 import com.base.plantform.entity.SysUser;
 import com.base.plantform.entity.VersionControl;
@@ -38,6 +39,10 @@ public class BaseServiceImpl implements BaseService{
 
     @Resource
     private PinBoardDao pinBoardDao;
+
+    public List<Menu> findMenuList() {
+        return baseDao.findMenuList();
+    }
 
     public List<VersionControl> getVersionControlList() {
         List<VersionControl> versionControlList = baseDao.getVersionControlList();
@@ -90,5 +95,15 @@ public class BaseServiceImpl implements BaseService{
         logger.info("当前系统时间为："+df.format(date));
         pinBoard.setCreateTime(df.format(date));
         return pinBoardDao.savePinBoard(pinBoard);
+    }
+
+    public boolean deletePinboardByID(String pinBoardId) {
+        int flag = pinBoardDao.deletePinBoard(pinBoardId);
+        if(flag == 1){
+            return true;
+        }else {
+            return false;
+        }
+
     }
 }

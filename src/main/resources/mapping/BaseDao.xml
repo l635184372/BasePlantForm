@@ -5,7 +5,22 @@
     <select id="getVersionControlList" resultType="com.base.plantform.entity.VersionControl">
         SELECT V.* FROM Version_control V WHERE 1 = 1 ORDER BY V.CREATEDATE ASC
     </select>
+    
+    <resultMap id="menuResultMap" type="com.base.plantform.entity.Menu">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="level" column="level"/>
+        <result property="target" column="target"/>
+        <result property="parentId" column="parentId"/>
+        <result property="enableFlag" column="enableFlag"/>
+        <association property="childrenList" column="id" select="getChildList"/>
+    </resultMap>
+    
+    <select id="findMenuList" resultMap="menuResultMap">
+        SELECT M.* FROM Menu M WHERE 1 = 1 AND M.ID = '0' AND M.delFlag = 0 ORDER BY M.orderBy ASC
+    </select>
 
-
-
+    <select id="getChildList" parameterType="String" resultMap="menuResultMap">
+        SELECT M.* FROM Menu M WHERE 1 = 1 AND M.parentId = #{parentId} AND M.delFlag = 0 ORDER BY M.orderBy ASC
+    </select>
 </mapper>

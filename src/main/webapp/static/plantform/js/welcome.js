@@ -9,15 +9,9 @@ layer.ready(function () {
 
     var html = $('#welcome-template').html();
 
-    var pin_board_html = $('#pin-board-add').html();
-
     $('a.viewlog').click(function () {
         logs();
         return false;
-    });
-
-    $('a.pin-board-add-view').click(function () {
-        pin_board_add_tips();
     });
 
     $('#pay-qrcode').click(function(){
@@ -43,21 +37,4 @@ layer.ready(function () {
     };
 
 
-    function pin_board_add_tips() {
-        parent.layer.open({
-            title: '标签页添加',
-            id: 'pin-board',
-            type: 1,
-            area: ['600px', '350px'],
-            content: pin_board_html
-            // btn: ['确定', '取消'],
-            // yes: function (index, layero) {
-            //     $("#pin-board-addForm").submit();
-            //     parent.layer.alert('确定！',{icon: 2});
-            // },
-            // btn2: function (index, layero) {
-            //     parent.layer.alert('取消！', {icon: 2});
-            // }
-        });
-    }
 });

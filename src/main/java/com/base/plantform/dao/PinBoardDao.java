@@ -29,4 +29,6 @@ public interface PinBoardDao {
      * @return
      */
     int deletePinBoard(String pinBoardId);
+
+
 }

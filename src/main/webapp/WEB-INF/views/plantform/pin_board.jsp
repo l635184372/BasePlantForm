@@ -30,7 +30,6 @@
             right: 26px;
             z-index: 100
         }
-
         .open-add-chat {
             height: 38px;
             width: 38px;
@@ -42,10 +41,14 @@
             color: #fff;
             border-radius: 50%;
         }
+
     </style>
 </head>
 
 <body class="gray-bg">
+<div>
+    <form id="searchForm" method="post" action="${ctxSys}/pin_board"></form>
+</div>
 <div class="row">
     <div class="col-sm-12">
         <div class="wrapper wrapper-content animated fadeInUp">
@@ -56,7 +59,7 @@
                             <small>${pinBoard.createTime}</small>
                             <h4>${pinBoard.title}</h4>
                             <p>${pinBoard.comment}</p>
-                            <a href="#" class="pinBoardDelete"><i class="fa fa-trash-o "></i></a>
+                            <a href="#" class="pinBoardDelete" onclick="pinBoardDelete('${pinBoard.id}');"><i class="fa fa-trash-o"></i></a>
                         </div>
                     </li>
                 </c:forEach>
@@ -111,33 +114,42 @@
 <!-- 第三方插件 -->
 <script src="${ctxStatic}/plantform/js/plugins/pace/pace.min.js"></script>
 <!-- 欢迎信息 -->
-<script src="${ctxStatic}/plantform/js/welcome.js"></script>
+<script src="${ctxStatic}/plantform/js/popupPage.js"></script>
 <!-- Sweet alert -->
 <script src="${ctxStatic}/plantform/js/plugins/sweetalert/sweetalert.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-        $(".pinBoardDelete").click(function () {
-            swal({
-                title: "您确定要删除这条信息吗",
-                text: "删除后将无法恢复，请谨慎操作！",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "是的，我要删除！",
-                cancelButtonText: "让我再考虑一下…",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            }, function (a) {
+    /**
+     * 删除标签墙内容
+     * @param pinBoardId
+     */
+    function pinBoardDelete(pinBoardId) {
+        swal({
+            title: "您确定要删除这条信息吗",
+            text: "删除后将无法恢复，请谨慎操作！",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "是的，我要删除！",
+            cancelButtonText: "让我再考虑一下…",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        }, function (a) {
+            if (a) {
+                $.ajax({url:"${ctxSys}/pin_board_delete",data:{pinBoardId:pinBoardId},success:function(data){
+                    if(data){
+                        swal("删除成功！", "您已经永久删除了这条信息。", "success")
+                        $("#searchForm").submit();
+                    }else{
+                        swal("删除失败！", "删除该信息失败。", "error")
+                    }
+                }});
 
-                if (a) {
-                    swal("删除成功！", "您已经永久删除了这条信息。", "success")
-                } else {
-                    swal("已取消", "您取消了删除操作！", "error")
-                }
-            })
+            } else {
+                swal("已取消", "您取消了删除操作！", "error")
+            }
         })
-    });
+    }
 </script>
 </body>
 
